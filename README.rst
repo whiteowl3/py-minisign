@@ -3,6 +3,17 @@ py-minisign
 
 Missing python `minisign <https://github.com/jedisct1/minisign>`_ library.
 
+This is a private fork with the following changes:
+ * signature length should be fully deterministic
+ * replace time.time with custom datetime string of deterministic length (14) that ignores milliseconds
+ * Remove untrusted comments from Signature class completely
+ * Trusted comment of Signature class replaced by "Subject"
+ * Subject is now first field of Signature
+ * Subject is now of fixed format {blake2b(input):{deterministic_datetime}}, this is designed for the use case of addressing a signed package to a particular node. for example: sk.sign(subject="recipient") will create the subject "hashed_recipient:deterministic_datetime".  Theres no security it just lets the client check if its addressed to them, and if it is newer.  This subject IS validated per upstream's "trusted_comment"
+ * Remove prefixes from comment and subject
+ * restructure signature drop and load to work with our new signature structure
+
+
 Library
 -------
 
