@@ -50,7 +50,7 @@ MEMLIMIT = 33_554_432
 MEMLIMIT_MAX = 1_073_741_824
 N_LOG2_MAX = 20
 
-SIG_EXT = 'minisig'
+SIG_EXT = 'sig'
 BYTE_ORDER = 'little'
 DEFAULT_SK_PATH = '~/.minisign/minisign.key'
 
